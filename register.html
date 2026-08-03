@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация — Уютный уголок</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fdf6e3;
+            background-image: url('https://i.pinimg.com/1200x/46/b4/a3/46b4a3f34a679d9365f95683b3d7ddd4.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-family: 'EB Garamond', serif;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 48px;
+            letter-spacing: 2px;
+            text-align: center;
+            color: #3d2b1f;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+        }
+
+        .register-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .register-input {
+            width: 260px;
+            padding: 12px 16px;
+            border: 3px double #c7730c;
+            border-radius: 8px;
+            background-color: #fffef7;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 18px;
+            font-style: italic;
+            color: rgb(128, 23, 5);
+            outline: none;
+        }
+
+        .register-input:focus {
+            border-color: #10515a;
+        }
+
+        .register-button {
+            background-color: #5a4a42;
+            color: #fdf6e3;
+            border: 2px solid #c7730c;
+            padding: 12px 30px;
+            font-size: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        .register-button:hover {
+            background-color: rgba(95, 62, 0, 0.8);
+        }
+
+        .message-warning {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-style: italic;
+            color: #493227;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            min-height: 24px;
+            margin-top: 10px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 16px;
+            color: #5a4a42;
+            text-decoration: underline;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Регистрация в Уютном уголке</h1>
+
+    <div class="register-box">
+        <input type="text" class="register-input" placeholder="Придумайте логин">
+        <input type="password" class="register-input" placeholder="Придумайте пароль">
+        <input type="password" class="register-input" placeholder="Повторите пароль">
+        <button class="register-button" onclick="register()">Зарегистрироваться</button>
+        <p id="registerMessage" class="message-warning"></p>
+    </div>
+
+    <a href="проект 1.html" class="back-link">← Вернуться в Уголок</a>
+
+    <script>
+        function register() {
+            var inputs = document.querySelectorAll('.register-input');
+            var login = inputs[0].value;
+            var password = inputs[1].value;
+            var confirm = inputs[2].value;
+            var msgBox = document.getElementById('registerMessage');
+
+            if (login === '' || password === '' || confirm === '') {
+                msgBox.textContent = 'Все поля должны быть заполнены.';
+                return;
+            }
+            if (password !== confirm) {
+                msgBox.textContent = 'Пароли не совпадают. Проверьте ещё раз.';
+                return;
+            }
+            msgBox.textContent = 'Аккаунт создан! Добро пожаловать в Уютный уголок.';
+        }
+    </script>
+</body>
+</html>
