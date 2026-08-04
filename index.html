@@ -205,7 +205,7 @@ body::before {
 
 /* Адаптация для экранов меньше 768px (планшеты и телефоны) */
 @media
-(max-width: 1300px) {
+(max-width: 768px) {
     body {
         background-size: cover;
         background-repeat: repeat-y;
@@ -240,6 +240,13 @@ body::before {
         margin-top: 0;
         z-index: 3;
     }
+/* Адаптируем картинку котика для телефона */
+.center-stage img {
+    width: 280px;               /* Увеличиваем базовую ширину */
+    max-width: 80%;             /* Но не даём ей быть шире 80% экрана */
+    height: auto;               /* Высота подстраивается пропорционально */
+    margin: 30px auto;          /* Центрируем и добавляем воздух сверху и снизу */
+}
 
     /* Шторы на мобильном: скрываем, чтобы не отвлекали */
     .curtain {
