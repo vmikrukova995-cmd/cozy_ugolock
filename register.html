@@ -141,49 +141,83 @@ font-weight: 600;
 /* Адаптация для телефонов (ширина до 768 пикселей) */
 @media (max-width: 768px) {
     body {
-        align-items: center;      /* Вместо flex-end — всё по центру */
-        overflow-x: hidden;
+        align-items: center;      /* Центрируем содержимое по горизонтали */
+        min-height: 100vh;        /* Растягиваем на весь экран */
     }
 
     .registration {
-        margin-left: auto;        /* Центрируем блок */
-        margin-right: auto;
-        width: 90%;               /* Даём чуть больше ширины, чтобы не прилипало */
+        position: relative;       /* Чтобы линия-псевдоэлемент позиционировалась относительно этого блока */
+        margin: auto;             /* Центрируем */
+        width: 90%;
         max-width: 400px;
-        align-items: center;      /* Внутренние элементы тоже по центру */
-        border-left: 7px double #f8c585; /* Граница остаётся! */
+        padding-left: 20px;       /* Место для линии */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Убираем border-left, линию сделаем через ::before */
+    }
+
+    /* Вертикальная линия слева на всю высоту контейнера */
+    .registration::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 7px;
+        background: transparent;
+        border-left: 7px double #f8c585;  /* Такая же двойная линия */
     }
 
     h1 {
-        margin-left: 0;           /* Убираем лишние отступы */
+        margin: 0;
+        padding-top: 30px;
         text-align: center;
         width: 100%;
+        font-size: 48px;          /* Крупный заголовок */
         text-shadow: 4px 2px 1px rgba(53, 41, 3, 0.979);
     }
 
-    .register-input,
-    .register-button,
-    .message-warning,
-    .back-link {
-        margin-left: 0;
-        margin-right: 0;
-        width: 100%;              /* Растягиваем на всю ширину контейнера */
+    .register-box {
+        width: 100%;
+        margin-top: 50px;
     }
 
     .register-input {
-        padding: 12px 16px;      /* Возвращаем нормальные отступы */
-        margin-bottom: 10px;
+        width: 100%;
+        padding: 18px 20px;       /* Крупные поля */
+        font-size: 22px;          /* Крупный текст внутри */
+        margin-bottom: 15px;
+        border: 3px solid rgb(182, 105, 12);
+    }
+
+    .register-input::placeholder {
+        font-size: 20px;          /* Подсказка покрупнее */
     }
 
     .register-button {
-        margin-left: 0;           /* Убираем отступ, который прижимал кнопку */
+        width: 100%;
+        margin: 15px 0 0 0;
+        padding: 16px 20px;
+        font-size: 24px;          /* Крупная кнопка */
+        letter-spacing: 2px;
+    }
+
+    .message-warning {
+        width: 100%;
+        text-align: center;
+        font-size: 22px;
+        margin-top: 15px;
     }
 
     .back-link {
-        justify-content: center;  /* Текст ссылки по центру */
-        padding-bottom: 50px;     /* Уменьшаем большой отступ */
+        width: 100%;
+        justify-content: center;
+        padding-bottom: 40px;
+        margin: 20px 0 0 0;
+        font-size: 22px;
     }
-}
+}
     </style>
 </head>
 <body>
