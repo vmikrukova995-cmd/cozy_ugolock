@@ -156,7 +156,19 @@ font-weight: 600;
         align-items: center;      /* Внутренние элементы тоже по центру */
         border-left: 7px double #f8c585; /* Граница остаётся! */
         flex: 1;
+position: relative;
     }
+/* Вертикальная линия на всю высоту */
+.registration::before {
+    content: '';               /* Обязательно, чтобы псевдоэлемент появился */
+    position: absolute;        /* Позиционируем относительно .registration */
+    top: 0;                    /* Прижимаем к верху */
+    bottom: 0;                 /* Растягиваем до самого низа */
+    left: 0;                   /* Прижимаем к левому краю */
+    width: 7px;               /* Толщина линии */
+    border-left: 7px double #f8c585; /* Рисуем саму линию */
+    z-index: 1;               /* Чтобы линия была над фоном */
+}
 
     h1 {
         margin-left: 0;           /* Убираем лишние отступы */
