@@ -138,130 +138,46 @@ font-weight: 600;
     position: fixed;
     min-height: 100vh;
 }
+/* Адаптация для телефонов (ширина до 768 пикселей) */
 @media (max-width: 768px) {
     body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100dvh; /* dvh учитывает адресную строку браузера */
-        margin: 0;
-        padding: 0;
+        align-items: center;      /* Вместо flex-end — всё по центру */
     }
 
     .registration {
-        position: relative;
-        width: 100%;       /* Растягиваем на всю ширину */
-        height: 100dvh;    /* Растягиваем на всю высоту экрана */
-        max-width: 100%;   /* Убираем ограничение ширины */
-        margin: 0;         /* Убираем margin auto, чтобы занять все пространство */
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between; /* Распределяет заголовок, форму и ссылку по всей высоте */
-        box-sizing: border-box;
-        border-left: none;
-    }
-
-    /* Вертикальная линия слева */
-    .registration::before {
-        content: '';
-        position: absolute;
-        top: 40px; /* Отступ от верха */
-        bottom: 40px; /* Отступ от низа */
-        left: 15px;
-        width: 7px;
-        border-left: 7px double #f8c585; 
+        margin-left: auto;        /* Центрируем блок */
+        margin-right: auto;
+        width: 60%;               /* Даём чуть больше ширины, чтобы не прилипало */
+        max-width: 600px;
+        align-items: center;      /* Внутренние элементы тоже по центру */
+        border-left: 7px double #f8c585; /* Граница остаётся! */
     }
 
     h1 {
-        width: 100%;
+        margin-left: 0;           /* Убираем лишние отступы */
         text-align: center;
-        font-size: 44px;   /* Увеличенный шрифт, чтобы слово переносилось */
-        line-height: 1.1;
-        margin: 0;
-        padding-top: 10px;
+        width: 100%;
         text-shadow: 4px 2px 1px rgba(53, 41, 3, 0.979);
-        align-self: center;
-        
     }
 
-    .register-box {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin: 0; /* Убрали лишние отступы, space-between распределит сам */
-    }
-
-    .register-input {
-        width: 100%;
-        padding: 36px 40px;
-        font-size: 30px;
-        margin-bottom: 15px;
-        border: 2px solid rgb(182, 105, 12);
-        border-radius: 8px;
-        box-sizing: border-box;
-        background-color: #fffaf2;
-        outline: none;
-        color: rgb(77, 4, 4);
-        font-family: 'Cormorant Garamond', Georgia, serif;
-        font-style: italic;
-        font-weight: 600;
-    }
-
-    .register-input::placeholder {
-        font-size: 19px;
-        color: rgba(17, 36, 78, 0.726);
-        font-weight: 600;
-    }
-
-    .register-input:focus {
-        border-color: #10515a;
+    .register-input,
+    .register-button,
+    .message-warning,
+    .back-link {
+        margin-left: 0;
+        margin-right: 0px;
+        width: 80%;              /* Растягиваем на всю ширину контейнера */
+        justify-content: center;
     }
 
     .register-button {
-        width: fit-content;
-        padding: 16px 35px;
-        font-size: 22px;
-        border-radius: 8px;
-        cursor: pointer;
-        align-self: center; /* Кнопка прижимается вправо, как на вашем фото 2 */
-        margin-top: 15px;
-        background-color: #5a4a42;
-        color: #fdf6e3;
-        border: 2px solid #332d27dc;
-        letter-spacing: 1px;
-        font-family: 'EB Garamond', serif;
-        font-style: italic;
-        transition: 0.2s;
-    }
-
-    .register-button:hover {
-        background-color: rgba(95, 62, 0, 0.8);
-    }
-
-    .message-warning {
-        width: 100%;
-        text-align: center;
-        font-size: 20px;
-        margin-top: 10px;
-        color: #f5d1a5;
-        font-style: italic;
-        min-height: 12px;
+        margin-left: 0px;           /* Убираем отступ, который прижимал кнопку */
+        align-items: center;
     }
 
     .back-link {
-        width: fit-content;
-        align-self: flex-start; /* Ссылка прижимается влево в самом низу */
-        margin-bottom: 10px;
-        font-size: 20px;
-        display: inline-block;
-        color: #f7f1ba;
-        text-decoration: underline;
-        font-style: italic;
-    }
-    
-    .back-link:hover {
-        color: #e4ce0b;
+        justify-content: center;  /* Текст ссылки по центру */
+        padding-bottom: 50px;     /* Уменьшаем большой отступ */
     }
 }
     </style>
