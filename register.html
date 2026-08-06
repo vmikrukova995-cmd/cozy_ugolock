@@ -141,32 +141,33 @@ font-weight: 600;
 /* Адаптация для телефонов (ширина до 768 пикселей) */
 @media (max-width: 768px) {
     body {
-        align-items: center;      /* Центрируем содержимое по горизонтали */
-        min-height: 100vh;        /* Растягиваем на весь экран */
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        display: flex;
     }
 
     .registration {
-        position: relative;       /* Чтобы линия-псевдоэлемент позиционировалась относительно этого блока */
-        margin: auto;             /* Центрируем */
+        position: relative;
+        margin: auto;
         width: 90%;
         max-width: 400px;
-        padding-left: 20px;       /* Место для линии */
+        padding-left: 20px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        /* Убираем border-left, линию сделаем через ::before */
+        align-items: flex-start; /* Поменяли с center на flex-start, чтобы кнопка не центрировалась, а имела отступ */
+        border-left: none; 
     }
 
-    /* Вертикальная линия слева на всю высоту контейнера */
+    /* Вертикальная линия слева */
     .registration::before {
         content: '';
         position: absolute;
-        top: 0;
-        bottom: 0;
+        top: 30px; /* Отступ от верха, чтобы не перекрывать заголовок */
+        bottom: 40px; /* Отступ от низа */
         left: 0;
         width: 7px;
-        background: transparent;
-        border-left: 7px double #f8c585;  /* Такая же двойная линия */
+        border-left: 7px double #f8c585; 
     }
 
     h1 {
@@ -174,48 +175,71 @@ font-weight: 600;
         padding-top: 30px;
         text-align: center;
         width: 100%;
-        font-size: 48px;          /* Крупный заголовок */
+        font-size: 36px; /* Уменьшили с 48px, чтобы слово Ark-light не переносилось */
         text-shadow: 4px 2px 1px rgba(53, 41, 3, 0.979);
+        margin-bottom: 20px;
+        align-self: center; /* Заголовок оставляем по центру */
     }
 
     .register-box {
         width: 100%;
-        margin-top: 50px;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Выравниваем поля по левому краю */
     }
 
     .register-input {
-        width: 100%;
-        padding: 18px 20px;       /* Крупные поля */
-        font-size: 22px;          /* Крупный текст внутри */
-        margin-bottom: 15px;
-        border: 3px solid rgb(182, 105, 12);
+        width: 100%; /* Поля ввода должны быть широкими на телефоне */
+        padding: 14px 16px; /* Чуть уменьшили отступы */
+        font-size: 19px; 
+        margin-bottom: 12px;
+        border: 2px solid rgb(182, 105, 12); /* Убрали 3px, сделали 2px как на ПК */
+        box-sizing: border-box; /* Важно, чтобы рамка не ломала ширину */
+        background-color: #fffaf2; /* Сделали поля более светлыми, как на втором фото */
     }
 
     .register-input::placeholder {
-        font-size: 20px;          /* Подсказка покрупнее */
+        font-size: 18px;
+        color: rgba(17, 36, 78, 0.726);
     }
 
     .register-button {
-        width: 100%;
+        width: auto; /* Убрали 100%! Кнопка больше не растягивается на всю ширину */
         margin: 15px 0 0 0;
-        padding: 16px 20px;
-        font-size: 24px;          /* Крупная кнопка */
-        letter-spacing: 2px;
+        padding: 12px 24px;
+        font-size: 20px;
+        letter-spacing: 1px;
+        border-radius: 8px;
+        cursor: pointer;
+        align-self: flex-end; /* Сдвинули кнопку к правому краю, как на втором фото */
+        background-color: #5a4a42;
+        color: #fdf6e3;
+        border: 2px solid #332d27dc;
+    }
+
+    .register-button:hover {
+        background-color: rgba(95, 62, 0, 0.8);
     }
 
     .message-warning {
         width: 100%;
         text-align: center;
-        font-size: 22px;
-        margin-top: 15px;
+        font-size: 19px;
+        margin-top: 10px;
+        min-height: 12px;
+        color: #f5d1a5;
     }
 
     .back-link {
-        width: 100%;
-        justify-content: center;
+        width: auto; /* Убрали width: 100%, чтобы текст не растягивался */
+        justify-content: flex-start;
         padding-bottom: 40px;
         margin: 20px 0 0 0;
-        font-size: 22px;
+        font-size: 19px;
+        color: #f7f1ba;
+        text-decoration: underline;
+        display: inline-block;
     }
 }
     </style>
