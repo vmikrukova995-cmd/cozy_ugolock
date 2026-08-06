@@ -138,84 +138,99 @@ font-weight: 600;
     position: fixed;
     min-height: 100vh;
 }
-/* Адаптация для телефонов (ширина до 768 пикселей) */
 @media (max-width: 768px) {
     body {
+        display: flex;
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        display: flex;
+        margin: 0;
     }
 
     .registration {
         position: relative;
         margin: auto;
-        width: 90%;
-        max-width: 400px;
-        padding-left: 20px;
+        width: 92%;
+        max-width: 520px; /* Увеличили ширину, чтобы контейнер не выглядел сжатым */
+        padding: 20px 40px 40px 45px; /* Добавили отступы сверху и снизу, увеличили слева для линии */
         display: flex;
         flex-direction: column;
-        align-items: flex-start; /* Поменяли с center на flex-start, чтобы кнопка не центрировалась, а имела отступ */
-        border-left: none; 
+        align-items: flex-start;
+        border-left: none; /* Убираем левую границу у самого блока */
+        box-sizing: border-box;
     }
 
     /* Вертикальная линия слева */
     .registration::before {
         content: '';
         position: absolute;
-        top: 30px; /* Отступ от верха, чтобы не перекрывать заголовок */
-        bottom: 40px; /* Отступ от низа */
-        left: 0;
+        top: 25px; /* Отступ сверху */
+        bottom: 40px; /* Отступ снизу */
+        left: 18px;
         width: 7px;
         border-left: 7px double #f8c585; 
+        z-index: 1;
     }
 
     h1 {
-        margin: 0;
-        padding-top: 30px;
+        margin: 0 0 25px 0;
+        padding: 0;
         text-align: center;
         width: 100%;
-        font-size: 36px; /* Уменьшили с 48px, чтобы слово Ark-light не переносилось */
+        font-size: 42px; /* Увеличили шрифт, чтобы слово Ark-light перешло на вторую строку */
+        line-height: 1.1;
         text-shadow: 4px 2px 1px rgba(53, 41, 3, 0.979);
-        margin-bottom: 20px;
-        align-self: center; /* Заголовок оставляем по центру */
+        align-self: flex-start;
     }
 
     .register-box {
         width: 100%;
-        margin-top: 30px;
+        margin-top: 0;
         display: flex;
         flex-direction: column;
-        align-items: flex-start; /* Выравниваем поля по левому краю */
+        align-items: flex-start;
     }
 
     .register-input {
-        width: 100%; /* Поля ввода должны быть широкими на телефоне */
-        padding: 14px 16px; /* Чуть уменьшили отступы */
-        font-size: 19px; 
-        margin-bottom: 12px;
-        border: 2px solid rgb(182, 105, 12); /* Убрали 3px, сделали 2px как на ПК */
-        box-sizing: border-box; /* Важно, чтобы рамка не ломала ширину */
-        background-color: #fffaf2; /* Сделали поля более светлыми, как на втором фото */
+        width: 100%;
+        padding: 16px 18px; /* Поля стали выше и объемнее */
+        font-size: 20px;
+        margin-bottom: 15px;
+        border: 2px solid rgb(182, 105, 12);
+        border-radius: 8px;
+        box-sizing: border-box;
+        background-color: #fffaf2;
+        outline: none;
+        color: rgb(77, 4, 4);
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
     }
 
     .register-input::placeholder {
-        font-size: 18px;
+        font-size: 19px;
         color: rgba(17, 36, 78, 0.726);
+        font-weight: 600;
+    }
+
+    .register-input:focus {
+        border-color: #10515a;
     }
 
     .register-button {
-        width: auto; /* Убрали 100%! Кнопка больше не растягивается на всю ширину */
+        width: fit-content; /* Кнопка не растягивается на всю ширину */
         margin: 15px 0 0 0;
-        padding: 12px 24px;
-        font-size: 20px;
-        letter-spacing: 1px;
+        padding: 16px 35px; /* Кнопка стала шире */
+        font-size: 22px;
         border-radius: 8px;
         cursor: pointer;
-        align-self: flex-end; /* Сдвинули кнопку к правому краю, как на втором фото */
+        align-self: flex-end; /* Сдвигает кнопку вправо, как на втором фото */
         background-color: #5a4a42;
         color: #fdf6e3;
         border: 2px solid #332d27dc;
+        letter-spacing: 1px;
+        font-family: 'EB Garamond', serif;
+        font-style: italic;
     }
 
     .register-button:hover {
@@ -225,21 +240,28 @@ font-weight: 600;
     .message-warning {
         width: 100%;
         text-align: center;
-        font-size: 19px;
-        margin-top: 10px;
+        font-size: 20px;
+        margin-top: 15px;
         min-height: 12px;
         color: #f5d1a5;
+        font-style: italic;
     }
 
     .back-link {
-        width: auto; /* Убрали width: 100%, чтобы текст не растягивался */
-        justify-content: flex-start;
-        padding-bottom: 40px;
-        margin: 20px 0 0 0;
-        font-size: 19px;
+        width: auto;
+        align-self: flex-start;
+        margin-top: 20px;
+        margin-left: 0;
+        font-size: 20px;
+        display: inline-block; /* Позволяет тексту ссылки переноситься на новые строки */
         color: #f7f1ba;
         text-decoration: underline;
-        display: inline-block;
+        font-style: italic;
+        padding-bottom: 30px;
+    }
+    
+    .back-link:hover {
+        color: #e4ce0b;
     }
 }
     </style>
