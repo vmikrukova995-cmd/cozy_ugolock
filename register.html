@@ -152,11 +152,12 @@ background-position: center;
     .registration {
         margin-left: auto;        /* Центрируем блок */
         margin-right: auto;
-        width: 90%;               /* Даём чуть больше ширины, чтобы не прилипало */
+        width: 80%;               /* Даём чуть больше ширины, чтобы не прилипало */
         max-width: 768px;
         align-items: center;      /* Внутренние элементы тоже по центру */
 position: relative;
 flex: 1;
+overflow-x: hidden;
     }
 /* Вертикальная линия на всю высоту */
 .registration::before {
@@ -176,7 +177,7 @@ flex: 1;
         text-shadow: 4px 2px 1px rgba(53, 41, 3, 0.979);
     }
 .register-input{
-width: 60%;
+width: 90%;
 padding: 10px 10px;
 font-size: 20px;
 
